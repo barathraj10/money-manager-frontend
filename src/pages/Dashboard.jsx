@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import api from '../api/axios';
 import { LogOut, ArrowDownLeft, ArrowUpRight, Wallet2, Loader2, LucideLoader2 } from 'lucide-react';
 import toast from 'react-hot-toast';
-import {Bar, BarChart, CartesianGrid, Cell, ResponsiveContainer, XAxis, YAxis} from 'recharts'
+import {Bar, BarChart, CartesianGrid, Cell, ResponsiveContainer, Tooltip, XAxis, YAxis} from 'recharts'
 
 const Card = ({ title, amount, icon:Icon, type }) => {
     const isIncome=type==="income";
@@ -113,6 +113,7 @@ const Dashboard = () => {
                                 <CartesianGrid strokeDasharray="5 5"/>
                                 <XAxis dataKey="name" axisLine={false} tickLine={false}/>
                                 <YAxis  axisLine={false} tickFormatter={(value)=> `₹${value}`}/>
+                                <Tooltip cursor={{fill:'#f1f5f9'}} contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}/>
                                 <Bar dataKey="amount" barSize={50} radius={[4,4,0,0]}>
                                     {chartData.map((entry, index)=>(
                                         <Cell key={index} fill={entry.name==="Income"?'#10b981' : '#f52626'}></Cell>
