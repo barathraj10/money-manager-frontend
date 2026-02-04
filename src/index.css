@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme{
+  --color-primary:#eeccfc;
+  --color-secondary:#310231;
+}
+
+@layer base{
+  body{
+    @apply bg-primary;
+    /* background-color:#eeccfc; */
+  }
+}
+@layer components{
+  .flex-center{
+    @apply flex justify-center items-center;
+  }
+}
