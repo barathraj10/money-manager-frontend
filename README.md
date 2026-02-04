@@ -1,16 +1,83 @@
-# React + Vite
+# 💰 Money Manager — Full Stack Expense Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Money Manager is a full-stack personal finance tracking web application that allows users to record their **income and expense transactions**, monitor their **financial balance**, and view **analytics summaries** over different time ranges.
 
-Currently, two official plugins are available:
+The application is designed to help users build a consistent habit of tracking spending, understanding where money is going, and staying financially disciplined.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+ Live Link : https://money-manager-frontend-eta.vercel.app/
 
-## React Compiler
+### Repositories
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+#### Frontend : https://github.com/barathraj10/money-manager-frontend/
 
-## Expanding the ESLint configuration
+#### Backend : https://github.com/barathraj10/money-manager-backend/
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ✨ What This Project Does
+
+Most people lose track of money because transactions happen frequently and in small amounts. This project solves that by giving the user:
+
+- A simple interface to record income/expense quickly
+- A transaction list to review spending history
+- A dashboard to instantly see:
+  - Total income
+  - Total expense
+  - Remaining balance
+- Category-wise analysis to understand spending patterns
+
+This application supports **secure authentication**, **protected API routes**, and user-specific data so each user only accesses their own transactions.
+
+---
+
+## 🚀 Features
+
+### 🔐 Authentication
+- Signup / Login
+- Password hashing using **bcrypt**
+- JWT-based authentication
+- Protected routes (user-specific data)
+
+### 💳 Transactions
+- Add / Edit / Delete transactions
+- Fields: type (income/expense), amount, category, division (personal/office), description
+- Filters:
+  - Type (income/expense/all)
+  - Category
+  - Division
+  - Date range
+
+### 📊 Dashboard
+- Total Income
+- Total Expense
+- Balance (Income − Expense)
+- Summary view by:
+  - Weekly / Monthly / Yearly
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+- React.js
+- Tailwind CSS
+- Axios
+- React Router DOM
+- react-hot-toast
+- lucide-react
+
+### Backend
+- Node.js + Express.js
+- MongoDB + Mongoose
+- Express.js
+- JWT Authentication
+- bcryptjs
+
+---
+<img width="1366" height="768" alt="Screenshot (115)" src="https://github.com/user-attachments/assets/8c1fbce1-577b-4ceb-a321-24d2aceb94fe" />
+
+<img width="1366" height="768" alt="Screenshot (118)" src="https://github.com/user-attachments/assets/5238ba74-7c4f-434f-b5c7-9a8ef902aaf1" />
+<img width="1366" height="768" alt="Screenshot (117)" src="https://github.com/user-attachments/assets/3c33b979-1e1f-4204-a1cc-1dfb2b8c0ac1" />
+<img width="1366" height="768" alt="Screenshot (116)" src="https://github.com/user-attachments/assets/9f394569-2586-4e64-a89a-917f5fec2503" />
+
