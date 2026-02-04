@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'
 import api from '../api/axios'
 import toast from 'react-hot-toast';
-import { ArrowUp, ArrowDown, Plus, Pen, Trash2, Loader2, Funnel } from 'lucide-react';
+import { ArrowUp, ArrowDown, Plus, Pen, Trash2, Loader2, Funnel, X } from 'lucide-react';
 
 const Transactions = () => {
 
@@ -97,7 +97,7 @@ const Transactions = () => {
       if (filters.startDate) params.startDate = filters.startDate;
       if (filters.endDate) params.endDate = filters.endDate;
 
-9843990494
+
 
       const { data } = await api.get('/transactions', { params });
       setTransactions(data);
@@ -183,13 +183,17 @@ const Transactions = () => {
           </div>
 
         </div>
-        <div onClick={() => setIsFilter(false)} className={`backdrop-blur-md absolute z-50 w-full top-0 right-0 ${isFilter ? "-translate-x-0" : "translate-x-full"} transition-transform duration-300`}>
+        <div className="">
+          <div onClick={() => setIsFilter(false)} className={`backdrop-blur-md fixed z-50 w-sm top-0 right-0 ${isFilter ? "-translate-x-0" : "translate-x-full"} transition-transform duration-300`}>
           <div className="flex justify-end">
 
             <div className={`z-50 h-screen transition-all w-lg lg:w-xl bg-gray-100/70 border-l-2 border-purple-400  shadow-purple-800 rounded-xl p-4 shadow-lg flex flex-col gap-3
         `}>
 
-              <h2 className="font-semibold text-lg text-black/80">Filters</h2>
+              <div className="flex justify-between  ">
+                <h2 className="font-semibold text-lg text-black/80">Filters</h2>
+                <button onClick={()=>setIsFilter(false)} className='text-red-600 bg-red-300 p-1 rounded-lg'><X size={24}/></button>
+              </div>
 
               <div className="flex flex-col gap-3" onClick={(e) => e.stopPropagation()}>
 
@@ -212,21 +216,29 @@ const Transactions = () => {
                   className="p-3 border border-gray-500 rounded-xl"
                 />
 
-                {/* Start Date */}
+                <div className="flex gap-3">
+                  <div className="flex-1 flex flex-col">
+                    {/* Start Date */}
+                <label className='text-gray-800'>From</label>
                 <input
                   type="date"
                   value={startDate}
                   onChange={(e) => setStartDate(e.target.value)}
                   className="p-3 border border-gray-500 rounded-xl"
                 />
+                  </div>
 
-                {/* End Date */}
+                <div className="flex-1 flex flex-col">
+                  {/* End Date */}
+                <label className='text-gray-800'>To</label>
                 <input
                   type="date"
                   value={endDate}
                   onChange={(e) => setEndDate(e.target.value)}
                   className="p-3 border border-gray-500 rounded-xl"
                 />
+                </div>
+                </div>
               </div>
 
               <div className="flex gap-2 justify-end">
@@ -248,13 +260,14 @@ const Transactions = () => {
           </div>
         </div>
 
+        </div>
         {loading ?
           <div className="bg-white flex-center p-5 rounded-xl">
             <p className='flex gap-3 font-semibold'>Loading Transactions <Loader2 className='flex-center animate-spin' size={36}></Loader2></p>
           </div>
           :
 
-          <div className='w-full flex flex-col gap-4'>
+          <div className='w-full flex flex-col gap-4 overflow-y-hidden'>
             {filtered.map((transaction) => (
               <div key={transaction._id}
                 className={`px-3 py-2 rounded-xl min-h-20 flex items-center justify-between gap-2 bg-white border-1 border-gray-500/50`}

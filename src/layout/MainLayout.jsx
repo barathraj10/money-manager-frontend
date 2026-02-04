@@ -106,7 +106,7 @@ const MainLayout = () => {
                     </button>
                 </header>
 
-                <div className="min-h-screen relative overflow-hidden p-4 bg-transparent lg:p-8 mx-auto space-y-8">
+                <div className="max-h-screen overflow-x-hidden relative p-4 bg-transparent lg:p-8 mx-auto space-y-8">
                     <Outlet />
                 </div>
             </main>
